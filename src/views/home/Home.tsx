@@ -3,10 +3,14 @@ import React, {useEffect, useState} from 'react';
 import {StyleSheet, View} from 'react-native';
 // Components
 import Header from '@/components/header';
+import TodaysImage from '@/components/todaysImage';
+// Services
 import fetchApi from '@/utils/fetch';
+// Types
+import {PostImage} from '@/types';
 
 const Home = () => {
-  const [todaysImage, setTodaysImage] = useState();
+  const [todaysImage, setTodaysImage] = useState<PostImage>();
 
   useEffect(() => {
     const loadTodaysImage = async () => {
@@ -27,6 +31,7 @@ const Home = () => {
   return (
     <View style={styles.container}>
       <Header />
+      <TodaysImage {...todaysImage} />
     </View>
   );
 };
