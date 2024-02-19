@@ -2,11 +2,21 @@
 import React, {FC} from 'react';
 import {Button, Image, StyleSheet, Text, View} from 'react-native';
 import {WebView} from 'react-native-webview';
+import {useNavigation} from '@react-navigation/native';
 // Types
-import {PostImage} from '@/types';
+import {PostImage, PostImageNavigationProps} from '@/types';
 
-const TodaysImage: FC<PostImage> = ({date, title, url, media_type}) => {
+const TodaysImage: FC<PostImage> = ({
+  date,
+  title,
+  url,
+  media_type,
+  explanation,
+}) => {
+  const {navigate} = useNavigation<PostImageNavigationProps>();
+
   const styles = getStyles(media_type);
+
   const getImageOrVideo = () => {
     switch (media_type) {
       case 'image':
@@ -18,13 +28,17 @@ const TodaysImage: FC<PostImage> = ({date, title, url, media_type}) => {
     }
   };
 
+  const handleViewPress = () => {
+    navigate('Detail', {title, date, url, explanation});
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.mediaContainer}>{url && getImageOrVideo()}</View>
       <Text style={styles.title}>{title}</Text>
       <Text style={styles.date}>{date}</Text>
       <View style={styles.buttonContainer}>
-        <Button title="View" />
+        <Button title="View" onPress={handleViewPress} />
       </View>
     </View>
   );
