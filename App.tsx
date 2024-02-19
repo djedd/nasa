@@ -2,12 +2,12 @@
 import React from 'react';
 import {SafeAreaView, StyleSheet} from 'react-native';
 // Components
-import Home from '@/views/home';
+import Routes from '@/routes/Routes';
 
 function App(): React.JSX.Element {
   return (
     <SafeAreaView style={styles.container}>
-      <Home />
+      <Routes />
     </SafeAreaView>
   );
 }

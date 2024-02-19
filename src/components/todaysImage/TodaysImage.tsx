@@ -6,7 +6,6 @@ import {WebView} from 'react-native-webview';
 import {PostImage} from '@/types';
 
 const TodaysImage: FC<PostImage> = ({date, title, url, media_type}) => {
-  console.log(url);
   const styles = getStyles(media_type);
   const getImageOrVideo = () => {
     switch (media_type) {
