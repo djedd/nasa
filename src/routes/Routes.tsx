@@ -18,8 +18,20 @@ const routeScreenDefaultOptions = {
   },
 };
 
+const MyTheme = {
+  dark: true,
+  colors: {
+    primary: 'rgba(7,26,93,255)',
+    background: '#ffffff', // Add background color
+    card: '#ffffff', // Add card color
+    text: '#ffffff', // Add text color
+    border: '#000000', // Add border color
+    notification: 'rgba(7,26,93,255)', // Add notification color
+  },
+};
+
 const Routes = () => (
-  <NavigationContainer>
+  <NavigationContainer theme={MyTheme}>
     <Stack.Navigator initialRouteName="Home">
       <Stack.Screen
         name="Home"
