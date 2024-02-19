@@ -5,11 +5,17 @@ import {useNavigation} from '@react-navigation/native';
 // Types
 import {PostImageNavigationProps, PostImage as PostImageType} from '@/types';
 
-const PostImage: FC<PostImageType> = ({title, date, url, explanation}) => {
+const PostImage: FC<PostImageType> = ({
+  title,
+  date,
+  url,
+  explanation,
+  media_type,
+}) => {
   const {navigate} = useNavigation<PostImageNavigationProps>();
 
   const handleViewPress = () => {
-    navigate('Detail', {title, date, url, explanation});
+    navigate('Detail', {title, date, url, explanation, media_type});
   };
 
   return (
